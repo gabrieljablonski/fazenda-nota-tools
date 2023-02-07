@@ -44,7 +44,7 @@ module.exports = {
     name   : \"fazenda-nota-server-$tag_name\",
     script : \"`pwd`/$tag_name/index.js\",
     error_file : \"`pwd`/error.log\",
-    out_file : \"`pwd`/out.log\"
+    out_file : \"`pwd`/out.log\",
     env: {
       DISPLAY: \":1\"
     }
