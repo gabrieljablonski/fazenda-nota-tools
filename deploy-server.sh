@@ -63,6 +63,9 @@ if [ ! -d "Schemas" ]; then
   rm "Schemas.tgz"
 fi
 
+cwd=`pwd | sed 's/\\//\\\\\//g'`
+sed "s/^FAZENDA_NOTA_RESOURCES_PATH=.*$/FAZENDA_NOTA_RESOURCES_PATH=$cwd\/$tag_name\/resources\//" -i .env
+
 cp .env "$tag_name/.env"
 
 cd "$tag_name"
