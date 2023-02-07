@@ -34,3 +34,19 @@ curl -s -L -H "Authorization: token $GITHUB_PAT" -H "Accept:application/octet-st
 
 tar -xvf "$outfile"
 rm "$outfile"
+mv "fazenda-nota-server_"* "$tag_name"
+
+echo "
+module.exports = {
+  apps : [{
+    name   : \"fazenda-nota-server-$tag_name\",
+    script : \"`pwd`/$tag_name/index.js\",
+    env: {
+      DISPLAY: \":1\"
+    }
+  }]
+}
+" > ecosystem.config.js
+
+cd "$tag_name"
+npm i
