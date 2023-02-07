@@ -34,4 +34,3 @@ curl -s -L -H "Authorization: token $GITHUB_PAT" -H "Accept:application/octet-st
 
 tar -xvf "$outfile"
 rm "$outfile"
-mv "fazenda-nota-server"* "fazenda-nota-server_$tag_name"
