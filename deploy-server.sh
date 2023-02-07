@@ -5,6 +5,8 @@
 ## - jq
 ####
 
+LIBACBR_URL="https://github.com/gabrieljablonski/fazenda-nota-tools/raw/main/libacbrnfe64.so.gz"
+SCHEMAS_URL="https://github.com/gabrieljablonski/fazenda-nota-tools/raw/main/Schemas.tgz"
 RELEASES_URL="https://api.github.com/repos/gabrieljablonski/fazenda-nota-server/releases"
 GITHUB_PAT=$(cat .github-pat)
 
@@ -47,6 +49,20 @@ module.exports = {
   }]
 }
 " > ecosystem.config.js
+
+if [ ! -d "lib" ]; then
+  wget "$LIBACBR_URL"
+  gunzip "libacbrnfe64.so.gz"
+  mkdir lib
+  mv "libacbrnfe64.so" lib/
+fi
+
+if [ ! -d "Schemas" ]; then
+  wget "$SCHEMAS_URL"
+  tar -xvf Schemas.tgz
+fi
+
+cp .env "$tag_name/.env"
 
 cd "$tag_name"
 npm i
