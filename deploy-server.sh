@@ -59,7 +59,8 @@ fi
 
 if [ ! -d "Schemas" ]; then
   wget "$SCHEMAS_URL"
-  tar -xvf Schemas.tgz
+  tar -xvf "Schemas.tgz"
+  rm "Schemas.tgz"
 fi
 
 cp .env "$tag_name/.env"
