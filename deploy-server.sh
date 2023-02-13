@@ -71,5 +71,9 @@ sed "s/^FAZENDA_NOTA_RESOURCES_PATH=.*$/FAZENDA_NOTA_RESOURCES_PATH=$cwd\/$tag_n
 cp .env "$tag_name/.env"
 cp libacbr.ini "$tag_name/libacbr.ini"
 
-cd "$tag_name"
-npm i
+if [ ! -d "node_modules" ]; then
+  cp "$tag_name/package.json" .
+  npm i
+fi
+
+ln -s "`pwd`/node_modules" "$tag_name/node_modules"
