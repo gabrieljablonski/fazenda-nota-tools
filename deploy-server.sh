@@ -68,6 +68,9 @@ fi
 cwd=`pwd | sed 's/\\//\\\\\//g'`
 sed "s/^FAZENDA_NOTA_RESOURCES_PATH=.*$/FAZENDA_NOTA_RESOURCES_PATH=$cwd\/$tag_name\/resources\//" -i .env
 
+sed "s/^FAZENDA_NOTA_FRONTEND_LATEST_VERSION=.*$/FAZENDA_NOTA_FRONTEND_LATEST_VERSION=/" -i .env
+sed "s/^FAZENDA_NOTA_FRONTEND_LATEST_HASH=.*$/FAZENDA_NOTA_FRONTEND_LATEST_HASH=/" -i .env
+
 cp .env "$tag_name/.env"
 cp libacbr.ini "$tag_name/libacbr.ini"
 
