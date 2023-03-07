@@ -53,14 +53,14 @@ module.exports = {
 " > ecosystem.config.js
 
 if [ ! -d "lib" ]; then
-  wget "$LIBACBR_URL"
+  wget --no-check-certificate "$LIBACBR_URL"
   gunzip "libacbrnfe64.so.gz"
   mkdir lib
   mv "libacbrnfe64.so" lib/
 fi
 
 if [ ! -d "Schemas" ]; then
-  wget "$SCHEMAS_URL"
+  wget --no-check-certificate "$SCHEMAS_URL"
   tar -xvf "Schemas.tgz"
   rm "Schemas.tgz"
 fi
