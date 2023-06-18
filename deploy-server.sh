@@ -75,6 +75,7 @@ sed "s/^FAZENDA_NOTA_FRONTEND_LATEST_VERSION=.*$/FAZENDA_NOTA_FRONTEND_LATEST_VE
 
 cp .env "$tag_name/.env"
 cp libacbr.ini "$tag_name/libacbr.ini"
+cp libacbr-mdfe.ini "$tag_name/libacbr-mdfe.ini"
 
 if [ ! -d "node_modules" ]; then
   cp "$tag_name/package.json" .
