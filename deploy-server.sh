@@ -48,7 +48,10 @@ module.exports = {
     out_file : \"`pwd`/out.log\",
     env: {
       DISPLAY: \":1\"
-    }
+      NEW_RELIC_APP_NAME: \"FazendaNota\",
+      NEW_RELIC_LICENSE_KEY: \"<NEW RELIC LICENSE KEY>\"
+    },
+    node_args: \"--require=newrelic\"
   }]
 }
 " > ecosystem.config.js
