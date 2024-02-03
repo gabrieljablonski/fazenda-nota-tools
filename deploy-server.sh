@@ -7,6 +7,8 @@
 
 LIBACBR_NFE_URL="https://github.com/gabrieljablonski/fazenda-nota-tools/raw/main/libacbrnfe64.so.gz"
 LIBACBR_MDFE_URL="https://github.com/gabrieljablonski/fazenda-nota-tools/raw/main/libacbrmdfe64.so.gz"
+LIBACBR_NFE_INI_URL="https://github.com/gabrieljablonski/fazenda-nota-tools/raw/main/libacbr.ini"
+LIBACBR_MDFE_INI_URL="https://github.com/gabrieljablonski/fazenda-nota-tools/raw/main/libacbr-mdfe.ini"
 SCHEMAS_URL="https://github.com/gabrieljablonski/fazenda-nota-tools/raw/main/Schemas.tgz"
 RELEASES_URL="https://api.github.com/repos/gabrieljablonski/fazenda-nota-server/releases"
 GITHUB_PAT=$(cat .github-pat)
@@ -59,6 +61,8 @@ module.exports = {
 if [ ! -d "lib" ]; then
   wget --no-check-certificate "$LIBACBR_NFE_URL"
   wget --no-check-certificate "$LIBACBR_MDFE_URL"
+  wget --no-check-certificate "$LIBACBR_NFE_INI_URL"
+  wget --no-check-certificate "$LIBACBR_MDFE_INI_URL"
   gunzip "libacbrnfe64.so.gz"
   gunzip "libacbrmdfe64.so.gz"
   mkdir lib
